@@ -12,7 +12,7 @@
 #include <string.h>
 #include <stdio.h>
 
-#define DEBUG_UART      3
+#define DEBUG_UART      1
 /**
  * @brief 同时仅1个使用uart，否则需要自己配置
  * 

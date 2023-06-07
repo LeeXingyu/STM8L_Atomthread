@@ -100,7 +100,7 @@
 
 /* Linker-provided startup stack location (usually top of RAM) */
 extern int _stack;
-
+int test_status;
 
 /* Local data */
 

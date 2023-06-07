@@ -1,14 +1,10 @@
 "-p" 
 
-"D:\Program Files\iar\stm8\config\ddf\iostm8l052r8.ddf" 
-
-"-d" 
-
-"stlink" 
+"D:\IAR Systems\Embedded Workbench 8.0\stm8\config\ddf\iostm8l151k4.ddf" 
 
 "--mcuname" 
 
-"STM8L052R8" 
+"STM8L151K4" 
 
 
 
