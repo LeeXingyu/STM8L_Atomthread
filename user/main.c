@@ -57,7 +57,6 @@
  */
 #define IDLE_STACK_SIZE_BYTES       128
 
-
 /*
  * Main thread stack size
  *
@@ -100,8 +99,6 @@
 
 /* Linker-provided startup stack location (usually top of RAM) */
 extern int _stack;
-int test_status;
-
 /* Local data */
 
 /* Application threads' TCBs */
@@ -145,7 +142,7 @@ NO_REG_SAVE void main ( void )
     /* CLK configuration */
     CLK_Config();
         /* Initialise UART (115200bps) */
-    Uart_Init(DEBUG_UART,9600);
+    Uart_Init(DEBUG_UART,115200);
     DMA_GlobalCmd(ENABLE); 
 
     /**
@@ -225,7 +222,7 @@ static void at_thread_func (uint32_t param)
     {
       status++;
       printf("printf main(%d)\n", (int)status);
-      atomTimerDelay(SYSTEM_TICKS_PER_SEC/3);
+      atomTimerDelay(SYSTEM_TICKS_PER_SEC/3);  //1000/3 = 333ms
     }
 }
 
@@ -242,6 +239,7 @@ static void at_thread_func (uint32_t param)
  */
 static void main_thread_func (uint32_t param)
 {
+    int test_status = 0;
     /* Test finished, flash slowly for pass, fast for fail */
     while (1)
     {
@@ -251,7 +249,7 @@ static void main_thread_func (uint32_t param)
         printf("printf test(%d)\n", (int)test_status);
 
         /* Sleep then toggle LED again */
-        atomTimerDelay(SYSTEM_TICKS_PER_SEC);
+        atomTimerDelay(SYSTEM_TICKS_PER_SEC);   //10ms tick 100times
     }
 }
 
